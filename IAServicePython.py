@@ -43,6 +43,7 @@ print ('Number of arguments:', len(sys.argv), 'arguments.')
 print ('Argument List:', str(sys.argv))
 
 i=IAServicePython()
-i.param = sys.argv 
+i.param = [int(sys.argv[1]),int(sys.argv[2])] 
+print("i.param : ", i.param)
 print(i.preduction_keras())
 
