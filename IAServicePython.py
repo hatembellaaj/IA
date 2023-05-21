@@ -28,12 +28,14 @@ class IAServicePython():
         y=dataset[:,2]
         model.fit(x,y,epochs=100)
         predictions=model.predict(x)
+        print("x = " , x)
         for i in range(5):
             #print('%s => %d (expected %d)' % (x[i].tolist(), predictions[i], y[i]))
             self.a1=self.a1+"{a} => {b} (expected {c})\n".format(a=x[i].tolist(), b=predictions[i], c=y[i])
         
         
         #return self.a1;
+        print("self.param = " , self.param)
         p = model.predict(self.param)
         return p
 
