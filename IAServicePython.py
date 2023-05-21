@@ -1,4 +1,5 @@
 import os
+import sys
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' 
 os.environ['AUTOGRAPH_VERBOSITY'] = '1'
 #import tensorflow as tf
@@ -13,6 +14,7 @@ tensorflow.autograph.set_verbosity(0)
 
 #class IAServicePython(IAService):
 class IAServicePython():
+    param=[]
     a1=""
     def preduction_keras(self):
         dataset=np.genfromtxt('matTab.csv',delimiter=',',skip_header=True,usecols=(1,6,7))
@@ -30,8 +32,17 @@ class IAServicePython():
             #print('%s => %d (expected %d)' % (x[i].tolist(), predictions[i], y[i]))
             self.a1=self.a1+"{a} => {b} (expected {c})\n".format(a=x[i].tolist(), b=predictions[i], c=y[i])
         
-        return self.a1;
+        
+        #return self.a1;
+        p = model.predict(param)
+        return p
 
-i=IAServicePython();
+
+
+print ('Number of arguments:', len(sys.argv), 'arguments.')
+print ('Argument List:', str(sys.argv))
+
+i=IAServicePython()
+i.param = sys.argv 
 print(i.preduction_keras())
 
