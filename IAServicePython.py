@@ -34,7 +34,7 @@ class IAServicePython():
         
         
         #return self.a1;
-        p = model.predict(this.param)
+        p = model.predict(self.param)
         return p
 
 
